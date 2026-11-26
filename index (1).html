@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Naseeha Sessions — Quran &amp; Sunnah</title>
+<meta name="description" content="One-on-one naseeha with Rahil, grounded in the Quran and Sunnah. Book a paid session, a free session, or naseeha with a sister." />
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+
+  :root {
+    --ink: #1C2430;
+    --ink-soft: #55606E;
+    --green-900: #0B1B2B;
+    --green-800: #12283D;
+    --green-700: #1B3A57;
+    --gold: #B98A4E;
+    --gold-light: #D9AE72;
+    --cream: #FBF8F3;
+    --cream-deep: #F3EDE3;
+    --line: #E6DED1;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4, .brand { font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif; }
+  a { color: var(--green-700); }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 22px; }
+  section { padding: 92px 0; scroll-margin-top: 78px; }
+
+  /* Nav */
+  nav {
+    background: rgba(11,27,43,.97);
+    backdrop-filter: blur(10px);
+    position: sticky; top: 0; z-index: 50;
+    border-bottom: 1px solid rgba(185,138,78,.28);
+  }
+  nav .container {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: 15px; padding-bottom: 15px; flex-wrap: wrap; gap: 12px;
+  }
+  .brand { font-size: 1.45rem; font-weight: 600; letter-spacing: .3px; color: #F5F0E6; text-decoration: none; }
+  .brand span { color: var(--gold); font-style: italic; }
+  nav ul { list-style: none; display: flex; gap: 26px; flex-wrap: wrap; align-items: center; }
+  nav ul a {
+    color: #CBD5E0; text-decoration: none; font-size: .9rem; font-weight: 500;
+    letter-spacing: .3px; transition: color .18s ease;
+  }
+  nav ul a:hover { color: var(--gold-light); }
+  nav ul li:first-child a {
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    color: #0B1B2B; padding: 8px 18px; border-radius: 999px; font-weight: 600;
+    box-shadow: 0 6px 16px rgba(185,138,78,.28);
+  }
+
+  /* Hero */
+  header.hero {
+    background:
+      radial-gradient(circle at 50% -10%, rgba(217,174,114,.22) 0%, rgba(217,174,114,0) 55%),
+      linear-gradient(165deg, #1B3A57 0%, #12283D 48%, #0B1B2B 100%);
+    color: #F5F0E6;
+    text-align: center;
+    padding: 104px 22px 116px;
+    position: relative;
+  }
+  header.hero:after {
+    content: "";
+    position: absolute; left: 50%; bottom: 0; transform: translateX(-50%);
+    width: 120px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .hero .badge {
+    display: inline-block; border: 1px solid rgba(185,138,78,.6); color: var(--gold-light);
+    background: rgba(185,138,78,.09);
+    padding: 7px 20px; border-radius: 999px; font-size: .74rem; letter-spacing: 2.4px;
+    margin-bottom: 28px; text-transform: uppercase; font-weight: 600;
+  }
+  .hero h1 {
+    font-size: clamp(2.4rem, 5.4vw, 3.9rem); line-height: 1.14; margin-bottom: 22px;
+    font-weight: 600; letter-spacing: -.5px;
+  }
+  .hero p {
+    max-width: 660px; margin: 0 auto 34px; font-size: 1.06rem;
+    color: #C9D3DE; line-height: 1.8;
+  }
+  .hero-trust {
+    margin-top: 30px; font-size: .82rem; letter-spacing: 1.4px; text-transform: uppercase;
+    color: #93A3B4; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+  }
+  .hero-trust span { display: inline-flex; align-items: center; gap: 14px; }
+  .hero-trust span:before { content: "•"; color: var(--gold); }
+  .hero-trust span:first-child:before { content: ""; }
+
+  .btn {
+    display: inline-block; padding: 15px 34px; border-radius: 999px;
+    text-decoration: none; font-weight: 600; font-size: .98rem; letter-spacing: .2px;
+    transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+    border: 1px solid transparent;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-gold {
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    color: #0B1B2B; box-shadow: 0 12px 26px rgba(185,138,78,.34);
+  }
+  .btn-gold:hover { box-shadow: 0 16px 34px rgba(185,138,78,.46); }
+  .btn-green {
+    background: linear-gradient(135deg, #1B3A57, #12283D);
+    color: #F5F0E6; box-shadow: 0 10px 22px rgba(18,40,61,.24);
+  }
+  .btn-green:hover { box-shadow: 0 14px 30px rgba(18,40,61,.32); }
+  .btn-outline-green { border-color: rgba(27,58,87,.35); color: var(--green-700); background: transparent; }
+  .btn-outline-green:hover { background: rgba(27,58,87,.06); }
+  .btn-outline-light { border-color: rgba(185,138,78,.55); color: var(--gold-light); background: transparent; }
+  .btn-outline-light:hover { background: rgba(185,138,78,.1); }
+
+  .section-title {
+    text-align: center; margin-bottom: 14px; font-size: clamp(1.9rem, 3.4vw, 2.5rem);
+    color: var(--green-800); font-weight: 600; letter-spacing: -.3px;
+  }
+  .section-title:after {
+    content: ""; display: block; width: 52px; height: 2px; margin: 16px auto 0;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .section-sub {
+    text-align: center; color: var(--ink-soft); margin-bottom: 52px; max-width: 620px;
+    margin-left: auto; margin-right: auto; font-size: .98rem;
+  }
+
+  /* Booking cards */
+  .booking-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 26px; align-items: stretch; }
+  .book-card {
+    background: #FFFFFF; border: 1px solid var(--line); border-radius: 20px;
+    padding: 38px 30px; text-align: center; display: flex; flex-direction: column;
+    box-shadow: 0 10px 30px rgba(20,38,58,.06);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .book-card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px rgba(20,38,58,.11); }
+  .book-card .tag {
+    display: inline-block; font-size: .7rem; letter-spacing: 2.2px; text-transform: uppercase;
+    color: var(--green-700); background: #EEF1F5; border-radius: 999px;
+    padding: 6px 16px; margin-bottom: 18px; font-weight: 600;
+  }
+  .book-card .tag.gold { color: #7A5320; background: linear-gradient(135deg,#F7ECD0,#EFDDB4); }
+  .book-card h3 { font-size: 1.7rem; margin-bottom: 12px; color: var(--green-800); font-weight: 600; }
+  .book-card p { color: var(--ink-soft); font-size: .95rem; margin-bottom: 24px; flex-grow: 1; }
+  .book-card .contact-line {
+    font-size: .9rem; color: var(--green-800); background: var(--cream);
+    border: 1px dashed rgba(185,138,78,.65); border-radius: 10px;
+    padding: 11px 13px; margin-bottom: 10px; word-break: break-all;
+  }
+  .card-actions { display: flex; flex-direction: column; gap: 11px; margin-top: auto; }
+  .card-actions .btn { width: 100%; padding-left: 18px; padding-right: 18px; }
+
+  /* Featured booking card */
+  .book-card.featured {
+    background: linear-gradient(165deg, #1B3A57 0%, #12283D 60%, #0B1B2B 100%);
+    border-color: rgba(185,138,78,.45);
+    box-shadow: 0 20px 46px rgba(11,27,43,.28);
+  }
+  .book-card.featured h3 { color: #F5F0E6; }
+  .book-card.featured p { color: #C4CFDA; }
+  .book-card.featured .tag { color: #0B1B2B; background: linear-gradient(135deg, var(--gold-light), var(--gold)); }
+  .book-card.featured .contact-line { background: rgba(255,255,255,.06); color: #EEF2F7; border-color: rgba(185,138,78,.5); }
+  .book-card.featured:hover { box-shadow: 0 26px 56px rgba(11,27,43,.34); }
+
+  .free-box {
+    margin-top: 34px; background: linear-gradient(135deg, #FBF3E4, #F1E3CA);
+    border: 1px solid rgba(185,138,78,.55); border-radius: 20px;
+    padding: 40px 30px; text-align: center;
+    box-shadow: 0 10px 26px rgba(185,138,78,.14);
+  }
+  .free-box h3 { color: #6B4C1E; font-size: 1.6rem; margin-bottom: 10px; font-weight: 600; }
+  .free-box p { color: #5C4A28; max-width: 620px; margin: 0 auto 22px; font-size: .95rem; }
+
+  /* Reviews */
+  #reviews { background: var(--cream-deep); }
+  .review-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr)); gap: 22px; }
+  .review-card {
+    background: #FFFFFF; border: 1px solid var(--line); border-radius: 16px;
+    padding: 28px 26px; box-shadow: 0 6px 18px rgba(20,38,58,.05);
+    position: relative; transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .review-card:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(20,38,58,.09); }
+  .review-card:before {
+    content: "\201C"; font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 3.4rem; line-height: 1; color: rgba(185,138,78,.35);
+    position: absolute; top: 12px; left: 18px;
+  }
+  .review-card p { font-size: .93rem; color: #2C3644; position: relative; padding-top: 14px; }
+  .review-card .who {
+    margin-top: 16px; color: var(--gold); font-weight: 600; font-size: .78rem;
+    letter-spacing: 1.6px; text-transform: uppercase;
+  }
+
+  /* Services */
+  .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(285px, 1fr)); gap: 20px; }
+  .service-card {
+    background: #FFFFFF; border: 1px solid var(--line); border-radius: 16px;
+    padding: 28px 24px; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    border-top: 3px solid rgba(185,138,78,.75);
+  }
+  .service-card:hover { transform: translateY(-4px); box-shadow: 0 16px 34px rgba(20,38,58,.09); border-color: rgba(185,138,78,.55); }
+  .service-card h4 { color: var(--green-800); font-size: 1.28rem; margin-bottom: 8px; font-weight: 600; }
+  .service-card h4 .advice {
+    display: block; font-family: 'Inter', sans-serif; font-weight: 600;
+    font-size: .68rem; letter-spacing: 1.6px; text-transform: uppercase;
+    color: #8C6432; margin-top: 7px;
+  }
+  .service-card p { color: var(--ink-soft); font-size: .92rem; }
+
+  /* Policy */
+  #policy { background: #FFFFFF; }
+  .policy-block {
+    background: var(--cream); border: 1px solid var(--line); border-radius: 16px;
+    padding: 32px 30px; margin-bottom: 22px;
+    box-shadow: 0 4px 14px rgba(20,38,58,.04);
+  }
+  .policy-block h3 {
+    color: var(--green-800); font-size: 1.42rem; margin-bottom: 14px; font-weight: 600;
+    padding-bottom: 12px; border-bottom: 1px solid var(--line);
+  }
+  .policy-block p { color: #2C3644; font-size: .94rem; margin-bottom: 12px; }
+  .policy-block p strong { color: var(--green-800); }
+  .policy-block ul { margin: 0 0 12px 20px; color: #2C3644; font-size: .94rem; }
+  .policy-block ul li { margin-bottom: 9px; }
+  .policy-block ul li::marker { color: var(--gold); }
+
+  footer {
+    background: linear-gradient(165deg, #12283D, #0B1B2B);
+    color: #C4CFDA; text-align: center; padding: 48px 22px;
+    border-top: 1px solid rgba(185,138,78,.3);
+  }
+  footer .foot-brand { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.5rem; color: #F5F0E6; margin-bottom: 14px; }
+  footer a { color: var(--gold-light); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+  footer .foot-contact { margin-bottom: 16px; font-size: .93rem; }
+  footer .copyright { font-size: .8rem; color: #8B99A8; letter-spacing: .4px; }
+
+  @media (max-width: 700px) {
+    section { padding: 62px 0; }
+    header.hero { padding: 70px 20px 80px; }
+    nav ul { gap: 16px; }
+    nav ul a { font-size: .84rem; }
+    .brand { font-size: 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a class="brand" href="#top">Naseeha <span>Sessions</span></a>
+    <ul>
+      <li><a href="#book">Book Now</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#policy">Policy</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="badge">Assalamu Alaikum &middot; Quran &amp; Sunnah</div>
+  <h1>Find Clarity. Strengthen Your Deen.<br />Move Forward.</h1>
+  <p>One-on-one naseeha with Rahil, grounded in the Quran and Sunnah — for Muslims, and for anyone open to religious guidance. Real guidance, a listening ear, and a way forward. Certified, with a background in positive Islamic psychology.</p>
+  <a class="btn btn-gold" href="#book">Book Now</a>
+  <div class="hero-trust">
+    <span>Private &amp; Confidential</span>
+    <span>Quran &amp; Sunnah Based</span>
+    <span>Judgment-Free</span>
+  </div>
+</header>
+
+<section id="book">
+  <div class="container">
+    <h2 class="section-title">Book Now</h2>
+    <p class="section-sub">Choose the option that fits you. Sessions are private, one-on-one, and judgment-free.</p>
+
+    <div class="booking-grid">
+      <div class="book-card featured">
+        <span class="tag gold">Paid</span>
+        <h3>Book with Rahil</h3>
+        <p>A dedicated one-on-one naseeha session, grounded in the Quran and Sunnah. For those who can afford it. You can book with me directly using the link below.</p>
+        <div class="card-actions">
+          <a class="btn btn-gold" href="https://calendly.com/rahilbhatti12/60" target="_blank" rel="noopener">Book a paid session &rarr;</a>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <span class="tag">For Sisters</span>
+        <h3>Naseeha with a Sister</h3>
+        <p>Sisters seeking naseeha from a female advisor can connect directly to arrange a session.</p>
+        <div class="contact-line">Email: Rahilbhatti12@gmail.com</div>
+        <div class="contact-line">Instagram: @naseeha.sessions</div>
+        <div class="card-actions">
+          <a class="btn btn-outline-green" href="mailto:Rahilbhatti12@gmail.com">Email to book with a sister &rarr;</a>
+          <a class="btn btn-green" href="https://www.instagram.com/naseeha.sessions/" target="_blank" rel="noopener">Message on Instagram</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="free-box">
+      <h3>Free Naseeha Session</h3>
+      <p>Free naseeha for those who truly cannot afford a paid session. Please respect our time and the guidelines.</p>
+      <a class="btn btn-green" href="https://calendly.com/rahilbhatti12/free-islamic-counseling-sessions" target="_blank" rel="noopener">Book a free session &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="container">
+    <h2 class="section-title">Reviews</h2>
+    <p class="section-sub">What clients say — feedback shared after their sessions.</p>
+    <div class="review-grid">
+      <div class="review-card"><p>&ldquo;Alhamdulillah, the session was beneficial and comfortable. What I found most helpful was the practical Islamic advice without judgement. I felt heard and understood. Brother Rahil was a very good listener and let me speak completely without interrupting or judging, which made me feel comfortable opening up. I also received clear practical steps to apply to my deen. His approach was calm, sincere, and professional. I would definitely recommend his naseeha to anyone who is struggling.&rdquo;</p><div class="who">Anonymous</div></div>
+      <div class="review-card"><p>&ldquo;Thank you so much. I will never forget how you stood by me during one of the hardest times in my life. Your advice, kindness, and support meant more to me than I can ever put into words. May Allah reward you abundantly. I&rsquo;m truly grateful, and I will never forget it.&rdquo;</p><div class="who">Anonymous</div></div>
+      <div class="review-card"><p>&ldquo;I felt very happy talking with you, and the session was really enjoyable and positive. What stood out to me most was the way you explained everything in a very simple and clear way. You described each point so well that it was easy to understand. I learned new things during the session, and the way you explained everything made the whole experience very meaningful for me.&rdquo;</p><div class="who">Anonymous</div></div>
+      <div class="review-card"><p>&ldquo;What I appreciated most about the naseeha session was the way we communicated and understood each other, without putting pressure on me. The session gave me peace of mind and tranquility, and the worry I had was gone. I was especially impressed by how carefully my situation was studied and understood. Thank you so much. I can&rsquo;t wait to continue working through other issues and discussions.&rdquo;</p><div class="who">Anonymous</div></div>
+      <div class="review-card"><p>&ldquo;I had a really nice experience during the session. I didn&rsquo;t feel judged at all, and I felt understood. The session gave me some practical steps that I can apply moving forward. I would definitely recommend a session with him, especially to anyone who feels like they&rsquo;re escaping from something or simply needs to be listened to in a non-judgmental environment.&rdquo;</p><div class="who">Anonymous</div></div>
+      <div class="review-card"><p>&ldquo;Jazakallah khair, my overall experience was excellent. It was purposeful, private, and engaging. Practical and immediate response makes it valuable. Highly recommended for day to day matters.&rdquo;</p><div class="who">Anonymous</div></div>
+      <div class="review-card"><p>&ldquo;The naseeha session helped me see my situation through the lens of the Quran and Sunnah instead of my own emotions. I left with clarity I had not been able to find on my own. May Allah reward you for this work.&rdquo;</p><div class="who">Anonymous</div></div>
+      <div class="review-card"><p>&ldquo;Brother Rahil listened with patience and gave me practical steps rooted in the Sunnah. There was no judgement, only sincere advice. I felt lighter after just one session, alhamdulillah.&rdquo;</p><div class="who">Anonymous</div></div>
+      <div class="review-card"><p>&ldquo;I came in confused and left with clarity and a renewed connection to my deen. The way each point was tied back to Allah and His Messenger ﷺ was exactly what I needed.&rdquo;</p><div class="who">Anonymous</div></div>
+      <div class="review-card"><p>&ldquo;Sincere, judgment-free, and grounded in revelation. Highly recommend to any brother or sister who needs someone to listen and guide them back to what matters.&rdquo;</p><div class="who">Anonymous</div></div>
+      <div class="review-card"><p>&ldquo;I was carrying a lot and didn&rsquo;t know where to start. The session was calm, honest, and rooted in the Quran and Sunnah. I left with clear steps and a lighter heart, alhamdulillah.&rdquo;</p><div class="who">Anonymous</div></div>
+      <div class="review-card"><p>&ldquo;Very patient and respectful. Everything was explained with evidence from the deen, not opinions. I felt safe and understood from beginning to end, and I would book again without hesitation.&rdquo;</p><div class="who">Anonymous</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <h2 class="section-title">Services</h2>
+    <p class="section-sub">Support for every part of your life.</p>
+    <div class="service-grid">
+      <div class="service-card"><h4>Individual Sessions <span class="advice">(Islamic advice)</span></h4><p>One-on-one naseeha for whatever you are carrying — private, honest, and grounded in the Quran and Sunnah.</p></div>
+      <div class="service-card"><h4>Relationships <span class="advice">(Islamic advice)</span></h4><p>Family tensions, friendships, and the people closest to you — handled with wisdom and adab.</p></div>
+      <div class="service-card"><h4>Group Sessions <span class="advice">(Islamic advice)</span></h4><p>Learn and grow together in a supportive group setting, guided by revelation.</p></div>
+      <div class="service-card"><h4>Mental &amp; Emotional Support <span class="advice">(Islamic advice)</span></h4><p>Anxiety, grief, stress, and low moments — with naseeha that takes both your heart and your deen seriously.</p></div>
+      <div class="service-card"><h4>Marriage &amp; Intimacy Support <span class="advice">(Islamic advice)</span></h4><p>Build a marriage that works — communication, closeness, and the sunnah of a loving home.</p></div>
+      <div class="service-card"><h4>Addictions &amp; Harmful Habits <span class="advice">(Islamic advice)</span></h4><p>Break free from what is holding you back, with practical steps and sincere accountability.</p></div>
+      <div class="service-card"><h4>Connecting with Allah <span class="advice">(Islamic advice)</span></h4><p>Salah, Qur&rsquo;an, and a relationship with your Lord that feels alive again — not just routine.</p></div>
+      <div class="service-card"><h4>Personal Development <span class="advice">(Islamic advice)</span></h4><p>Know your mission and build the discipline, habits, and direction to fulfill it.</p></div>
+      <div class="service-card"><h4>Marriage Vetting &amp; Preparation <span class="advice">(Islamic advice)</span></h4><p>Before you say yes — clarity on compatibility, character, and the questions that matter most.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="policy">
+  <div class="container">
+    <h2 class="section-title">Our Policy</h2>
+    <p class="section-sub">Please read before you book — we need to make sure we&rsquo;re all on the same page.</p>
+
+    <div class="policy-block">
+      <h3>Disclaimer</h3>
+      <p>Naseeha Sessions provides faith-based Islamic guidance concerning mental, emotional, spiritual, and personal difficulties. Our services are religious in nature and do not constitute clinical mental health treatment, psychotherapy, diagnosis, or medical care.</p>
+      <p>We are not clinical psychologists or psychiatrists; we offer naseeha (Islamic advisory) and personal development guidance.</p>
+      <p><strong>No Diagnosis or Clinical Treatment</strong></p>
+      <p>Naseeha Sessions does not diagnose mental health conditions, conduct clinical assessments, prescribe medication, or provide clinical treatment. Our role is limited to offering faith-based Islamic advice and guidance rooted in the Qur&rsquo;an and Sunnah.</p>
+      <p>If we cannot help your case, we will refer you to a licensed mental health professional in your area.</p>
+    </div>
+
+    <div class="policy-block">
+      <h3>&#128683; No Legal or Court Involvement Policy</h3>
+      <p>Naseeha Sessions with Rahil is not involved in any legal matters, and we do not participate in any court-related proceedings under any circumstances.</p>
+      <p>Our role is strictly limited to naseeha (Islamic advisory) and personal development. We are not legal professionals, and we do not offer legal advice or services. To be clear:</p>
+      <ul>
+        <li>We do not provide written or verbal statements, reports, summaries, or documents for legal use.</li>
+        <li>We do not assist with court filings, custody cases, divorce documents, or any personal or professional legal claims.</li>
+        <li>We do not make legal appearances, submit testimony, or communicate with legal representatives on your behalf.</li>
+        <li>We do not give any information (written, verbal, or recorded) to support lawsuits or court proceedings.</li>
+        <li>Any attempt to involve us in legal disputes will be refused and may result in immediate termination of naseeha services.</li>
+        <li>If you require legal support, you must consult a qualified attorney.</li>
+        <li>We are not to be contacted by legal authorities, lawyers, or courts for any purpose related to our naseeha services.</li>
+      </ul>
+      <p>By using the services of Naseeha Sessions, you acknowledge and agree to this policy in full.</p>
+    </div>
+
+    <div class="policy-block">
+      <h3>Code of Conduct for Clients</h3>
+      <ul>
+        <li>Be on time.</li>
+        <li>We recommend you keep your video off if you are meeting with an advisor of the opposite gender.</li>
+        <li>Respect the boundaries being put in place by the advisor.</li>
+        <li>Your advisor is not responsible for filling a void; rather their objective is to be empathetic, help you sort out your issues, and propose solutions.</li>
+        <li>Do not discuss or share personal matters that are irrelevant to your case.</li>
+        <li>The advisor has the right to discontinue or decline sessions and refer you to another advisor.</li>
+        <li>Your well-being is important to us. If you would like to file a claim, please email Rahilbhatti12@gmail.com with the subject line &ldquo;File A Claim - (Advisor Name)&rdquo;, and include your name, appointment day and time, your invoice number, and a brief description of the issue. All claims are 100% confidential.</li>
+      </ul>
+    </div>
+
+    <div class="policy-block">
+      <h3>How To Book A Session &mdash; Session Guidelines</h3>
+      <p><strong>Session length:</strong> Each session lasts one hour, depending on what you book. Be mindful of time so we can conclude the session smoothly.</p>
+      <p><strong>Respect our time:</strong> Sessions take place in Google Meet. Tech glitches happen, but do your best to be there at the start.</p>
+    </div>
+
+    <div class="policy-block">
+      <h3>No-Show Policy</h3>
+      <p>If you do not join within the first <strong>10 minutes</strong> of your session, the session is over. It will be considered a no-show/cancellation, and for paid sessions no refund will be provided. This applies to all sessions. No exceptions.</p>
+    </div>
+
+    <div class="policy-block">
+      <h3>Free Naseeha Offer</h3>
+      <p>We offer free naseeha for those who truly can&rsquo;t afford it. But let&rsquo;s keep it real — this is a trust. Please respect our time and don&rsquo;t abuse this offer. If you can afford paid sessions, please go for that option. For those who need the free offer, we ask that you follow the guidelines below:</p>
+      <ul>
+        <li>If you do not show up within the first 10 minutes, the session will be canceled and you will not be able to book for another month — no exceptions.</li>
+        <li><strong>Limited bookings:</strong> You can book up to 2 free sessions per month unless your advisor approves additional sessions. This helps ensure that everyone gets a fair chance to access our services.</li>
+        <li><strong>Abuse of service:</strong> If we find that you&rsquo;re abusing the free option, we reserve the right to discontinue your access to it.</li>
+        <li><strong>Gender-specific sessions:</strong> Brothers should book with the male advisor only. The sister does not offer free sessions to brothers.</li>
+      </ul>
+    </div>
+
+    <div class="policy-block">
+      <h3>Cancellation &amp; Rescheduling Policy</h3>
+      <p>If you need to cancel or reschedule your session, please do so at least <strong>3 days before</strong> the scheduled session. You can find the cancellation or rescheduling link in your confirmation email or within your calendar event notes.</p>
+      <p>No cancellations or rescheduling after the 3-day window.</p>
+      <p>If you do not show up within the first 10 minutes of your session, the session will be over and automatically canceled. No refunds will be provided for attending late past the 10-minute mark. No exceptions. Please respect our time!</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-brand">Naseeha Sessions</div>
+  <div class="foot-contact">
+    Email: <a href="mailto:Rahilbhatti12@gmail.com">Rahilbhatti12@gmail.com</a> &nbsp;&middot;&nbsp;
+    Instagram: <a href="https://www.instagram.com/naseeha.sessions/" target="_blank" rel="noopener">@naseeha.sessions</a>
+  </div>
+  <div class="copyright">&copy; 2026 Naseeha Sessions. All rights reserved.</div>
+</footer>
+
+</body>
+</html>
